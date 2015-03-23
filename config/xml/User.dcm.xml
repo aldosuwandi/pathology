@@ -5,7 +5,7 @@
       <index name="user_group" columns="user_group"/>
     </indexes>
     <id name="username" type="string" column="username" length="25">
-      <generator strategy="IDENTITY"/>
+      <generator strategy="NONE"/>
     </id>
     <field name="password" type="text" column="password" length="65535" nullable="false"/>
     <field name="name" type="text" column="name" length="65535" nullable="false"/>

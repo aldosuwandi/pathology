@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManager;
 $isDevMode = true;
 //$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode,null, null, false);
 // or if you prefer yaml or XML
-$config = Setup::createXMLMetadataConfiguration(array(__DIR__."/config/xml"), $isDevMode);
+$config = Setup::createXMLMetadataConfiguration(array(FCPATH."config/xml"), $isDevMode);
 //$config = Setup::createYAMLMetadataConfiguration(array(__DIR__."/config/yaml"), $isDevMode);
 
 // database configuration parameters

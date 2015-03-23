@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ccfe94d888d6389c9a64ebf4b8c98720",
+    "hash": "324d56dcea5a97f91acad90aeb622eb5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -296,12 +296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "fbd7ef99a5efb7cf5da1aad760011c31b52a5856"
+                "reference": "f1ae0e3b22e34c2e79a23ca5547fe5fe4d078f9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/fbd7ef99a5efb7cf5da1aad760011c31b52a5856",
-                "reference": "fbd7ef99a5efb7cf5da1aad760011c31b52a5856",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/f1ae0e3b22e34c2e79a23ca5547fe5fe4d078f9a",
+                "reference": "f1ae0e3b22e34c2e79a23ca5547fe5fe4d078f9a",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2015-03-23 02:55:17"
+            "time": "2015-03-23 11:35:53"
         },
         {
             "name": "doctrine/dbal",

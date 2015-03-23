@@ -161,6 +161,16 @@ class User
     }
 
     /**
+     * Set username
+     * @param $username
+     * @return string
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    /**
      * Get username
      *
      * @return string 
