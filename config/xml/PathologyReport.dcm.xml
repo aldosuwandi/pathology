@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="PathologyReport" table="pathology_report">
+    <indexes>
+      <index name="user" columns="user"/>
+      <index name="user_2" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="text" column="title" length="65535" nullable="false"/>
+    <field name="dateTaken" type="datetime" column="date_taken" nullable="false"/>
+    <field name="note" type="text" column="note" length="65535" nullable="false"/>
+    <many-to-one field="user" target-entity="User">
+      <join-columns>
+        <join-column name="user" referenced-column-name="username"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

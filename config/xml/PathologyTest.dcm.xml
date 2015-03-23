@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="PathologyTest" table="pathology_test">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="text" column="name" length="65535" nullable="false"/>
+    <field name="unit" type="text" column="unit" length="65535" nullable="false"/>
+    <field name="expectedValue" type="text" column="expected_value" length="65535" nullable="false"/>
+  </entity>
+</doctrine-mapping>

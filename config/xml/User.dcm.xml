@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="User" table="user">
+    <indexes>
+      <index name="user_group" columns="user_group"/>
+    </indexes>
+    <id name="username" type="string" column="username" length="25">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="password" type="text" column="password" length="65535" nullable="false"/>
+    <field name="name" type="text" column="name" length="65535" nullable="false"/>
+    <field name="gender" type="string" column="gender" length="10" nullable="false"/>
+    <field name="age" type="integer" column="age" nullable="false"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <many-to-one field="userGroup" target-entity="UserGroup">
+      <join-columns>
+        <join-column name="user_group" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

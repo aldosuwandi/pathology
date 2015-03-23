@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="PathologyReportTest" table="pathology_report_test">
+    <indexes>
+      <index name="pathology_report" columns="pathology_report"/>
+      <index name="pathology_test" columns="pathology_test"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="result" type="text" column="result" length="65535" nullable="false"/>
+    <field name="note" type="text" column="note" length="65535" nullable="false"/>
+    <many-to-one field="pathologyReport" target-entity="PathologyReport">
+      <join-columns>
+        <join-column name="pathology_report" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="pathologyTest" target-entity="PathologyTest">
+      <join-columns>
+        <join-column name="pathology_test" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
