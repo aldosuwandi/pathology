@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+    <link media="screen" type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="./assets/js/jquerygit s.min.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.min.js"></script>
 	<title>Welcome to CodeIgniter</title>
 
 	<style type="text/css">
