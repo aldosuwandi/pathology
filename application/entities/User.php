@@ -29,6 +29,12 @@ class User
      */
     private $age;
 
+
+    /**
+     * @var string
+     */
+    private $mobile;
+    
     /**
      * @var \DateTime
      */
@@ -112,6 +118,29 @@ class User
     public function getGender()
     {
         return $this->gender;
+    }
+
+    /**
+     * Set mobile
+     *
+     * @param string $mobile
+     * @return User
+     */
+    public function setMobile($mobile)
+    {
+        $this->mobile = $mobile;
+
+        return $this;
+    }
+
+    /**
+     * Get mobile
+     *
+     * @return string
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
     }
 
     /**

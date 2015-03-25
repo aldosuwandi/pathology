@@ -40,6 +40,12 @@
 
 $route['default_controller'] = "login";
 $route['404_override'] = '';
+$route['admin/index'] = 'admin/test';
+$route['admin/user'] = 'admin/pathologyuser';
+$route['admin/user/create'] = 'admin/pathologyuser/create';
+$route['admin/user/edit'] = 'admin/pathologyuser/edit';
+$route['admin/user/edit/?(:any)'] = 'admin/pathologyuser/edit/$1';
+$route['admin/user/delete/?(:any)'] = 'admin/pathologyuser/delete/$1';
 
 
 /* End of file routes.php */

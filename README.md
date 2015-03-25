@@ -16,3 +16,14 @@ patients:
 * Export a report as PDF
 * Mail a report as PDF
  
+####Initializing Application
+1. Create MySQL database (example : aldo_pathology)
+2. Configure config file on application/config/database.php with your database configuration
+3. Configure again config file on boostrap.php with your database configuration
+4. Execute script "php install.php" to instantiate database schema and fixture
+5. Execute script "composer install" to download necessary library for application
+6. When composer has been successfully download all dependencies, copy the application folder to your web server folder
+7. Then, the application is ready to use
+
+####Assumptions
+1. Mailing system will not working because there is no available SMTP server, however the feature already implemented.

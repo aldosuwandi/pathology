@@ -9,7 +9,7 @@
 
 <div class="container" style="width: 20%">
     <?php echo form_open('login/submit'); ?>
-        <h4>Pathology Reporting System</h4>
+        <h5>Pathology Reporting System</h5>
         <label for="Username" class="sr-only">Username</label>
         <input type="text" id="Username" class="form-control" placeholder="Username" name="username" required autofocus style="margin-bottom: 10px">
         <label for="inputPassword" class="sr-only">Password</label>
@@ -19,6 +19,15 @@
 </div> <!-- /container -->
 
 <?php $this->load->view('template/footer');?>
+
+<script>
+    $(function() {
+        var availableTags = <?php echo $users; ?>;
+        $( "#Username" ).autocomplete({
+            source: availableTags
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -6,10 +6,13 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Dashboard Template for Bootstrap</title>
+<title>Pathology Reporting System Application</title>
 
 <!-- Bootstrap core CSS -->
 <link href="<?php base_url();?>/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php base_url();?>/assets/css/jquery-ui.min.css" rel="stylesheet">
+<link href="<?php base_url();?>/assets/css/jquery-ui.structure.min.css" rel="stylesheet">
+<link href="<?php base_url();?>/assets/css/jquery-ui.theme.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="<?php base_url();?>/assets/css/dashboard.css" rel="stylesheet">

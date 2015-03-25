@@ -11,8 +11,12 @@
     <field name="name" type="text" column="name" length="65535" nullable="false"/>
     <field name="gender" type="string" column="gender" length="10" nullable="false"/>
     <field name="age" type="integer" column="age" nullable="false"/>
+    <field name="mobile" type="string" column="mobile" length="20" nullable="false"/>
     <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
     <many-to-one field="userGroup" target-entity="UserGroup">
+        <cascade>
+            <cascade-persist/>
+        </cascade>
       <join-columns>
         <join-column name="user_group" referenced-column-name="id"/>
       </join-columns>

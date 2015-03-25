@@ -1,6 +1,6 @@
 <?php $this->load->helper('url'); ?>
 
-<a href="<?php base_url();?>create_user" class="btn btn-default" role="button">Create</a>
+<a href="<?php base_url();?>/admin/user/create" class="btn btn-default" role="button">Create</a>
 <br/>
 <table class="table table-striped">
     <thead>
@@ -9,6 +9,7 @@
         <th>Name</th>
         <th>Gender</th>
         <th>Age</th>
+        <th>Mobile</th>
         <th>Action</th>
     </tr>
     </thead>
@@ -19,11 +20,14 @@
             <td><?php echo $user->getName(); ?></td>
             <td><?php echo $user->getGender(); ?></td>
             <td><?php echo $user->getAge(); ?></td>
+            <td><?php echo $user->getMobile(); ?></td>
             <td>
-                <a href="<?php base_url();?>edit_user/<?php echo $user->getUsername();?>" class="btn btn-default" role="button">Edit</a>
-                <a href="<?php base_url();?>delete_user/<?php echo $user->getUsername();?>" class="btn btn-default" role="button">Delete</a>
+                <a href="<?php base_url();?>/admin/user/edit/<?php echo $user->getUsername();?>" class="btn btn-default" role="button">Edit</a>
+                <a href="<?php base_url();?>/admin/user/delete/<?php echo $user->getUsername();?>" class="btn btn-default" role="button">Delete</a>
+                <button type="button" id="sendSMS" class="btn btn-default" onclick="alert('sending username and password to <?php echo $user->getMobile()?>');">Send ID</button>
             </td>
         </tr>
     <?php } ?>
     </tbody>
 </table>
+

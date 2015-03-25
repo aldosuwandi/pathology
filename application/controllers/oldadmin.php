@@ -6,7 +6,7 @@
  * @property Model_test $model_test
  * @property Model_report $model_report
  */
-class Admin extends MY_Controller
+class OldAdmin extends MY_Controller
 {
     public function __construct()
     {
@@ -95,17 +95,16 @@ class Admin extends MY_Controller
         if ($this->input->server('REQUEST_METHOD') == 'GET') {
             $this->load->view('admin/report/report_create',[
                 'content' => null,
-                'action' => 'create'
+                'action' => 'create',
+                'users' => $this->model_user->findAll()
             ]);
         } else {
-            $report = new report();
-            $report->setName($this->input->post('name'));
-            $report->setAge($this->input->post('age'));
-            $report->setGender($this->input->post('gender'));
-            $report->setreportname($this->input->post('reportname'));
-            $report->setCreatedAt(new DateTime());
-            $report->setreportGroup($this->model_report->getreportGroup(2));
-            $report->setPassword(md5($this->input->post('password')));
+            $report = new PathologyReport();
+            $user = $this->model_user->findById($this->input->post('user'));
+            $report->setTitle($this->input->post('title'));
+            $report->setUser($user);
+            $report->setNote($this->input->post('note'));
+            $report->setDateTaken(new DateTime($this->input->post('date')));
             $this->model_report->create($report);
             redirect('admin/report');
         }
@@ -121,26 +120,43 @@ class Admin extends MY_Controller
     public function edit_report($id=null)
     {
         if ($id == null) {
-            $report = $this->model_report->findById($this->input->post('reportname'));
+            $report = $this->model_report->findById($this->input->post('id'));
         } else {
             $report = $this->model_report->findById($id);
         }
         if ($this->input->server('REQUEST_METHOD') == 'GET') {
             $this->load->view('admin/report/report_create',[
                 'content' => $report,
-                'action' => 'edit'
+                'action' => 'edit',
+                'tests' => $this->model_test->findAll(),
+                'reportTests' => $this->model_report->getReportTests($id)
             ]);
         } else {
-            $report->setName($this->input->post('name'));
-            $report->setAge($this->input->post('age'));
-            $report->setGender($this->input->post('gender'));
-            if ($this->input->post('password') != 'default') {
-                $report->setPassword(md5($this->input->post('password')));
-            }
+            $report->setTitle($this->input->post('title'));
+            $report->setNote($this->input->post('note'));
+            $report->setDateTaken(new DateTime($this->input->post('date')));
             $this->model_report->update($report);
             redirect('admin/report');
         }
     }
+
+    public function create_test_report()
+    {
+        $testReport = new PathologyReportTest();
+        $testReport->setResult($this->input->post('result'));
+        $testReport->setPathologyTest($this->model_test->findById($this->input->post('test')));
+        $testReport->setPathologyReport($this->model_report->findById($this->input->post('report')));;
+        $testReport->setNote($this->input->post('note'));
+        $this->model_report->createReportTest($testReport);
+        redirect('admin/edit_report/'.$this->input->post('report'));
+    }
+
+    public function delete_test_report($id)
+    {
+        $this->model_report->deleteReportTest($id);
+        redirect('admin/report');
+    }
+
     public function user()
     {
         $users = $this->model_user->findAll();
@@ -165,8 +181,9 @@ class Admin extends MY_Controller
             $user->setGender($this->input->post('gender'));
             $user->setUsername($this->input->post('username'));
             $user->setCreatedAt(new DateTime());
+            $user->setMobile($this->input->post('mobile'));
             $user->setUserGroup($this->model_user->getUserGroup(2));
-            $user->setPassword(md5($this->input->post('password')));
+            $user->setPassword($this->input->post('password'));
             $this->model_user->create($user);
             redirect('admin/user');
         }
@@ -196,7 +213,7 @@ class Admin extends MY_Controller
             $user->setAge($this->input->post('age'));
             $user->setGender($this->input->post('gender'));
             if ($this->input->post('password') != 'default') {
-                $user->setPassword(md5($this->input->post('password')));
+                $user->setPassword($this->input->post('password'));
             }
             $this->model_user->update($user);
             redirect('admin/user');

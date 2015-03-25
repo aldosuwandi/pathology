@@ -9,13 +9,19 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="result" type="text" column="result" length="65535" nullable="false"/>
-    <field name="note" type="text" column="note" length="65535" nullable="false"/>
+    <field name="note" type="text" column="note" length="65535" nullable="true"/>
     <many-to-one field="pathologyReport" target-entity="PathologyReport">
+      <cascade>
+          <cascade-persist/>
+      </cascade>
       <join-columns>
         <join-column name="pathology_report" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="pathologyTest" target-entity="PathologyTest">
+        <cascade>
+            <cascade-persist/>
+        </cascade>
       <join-columns>
         <join-column name="pathology_test" referenced-column-name="id"/>
       </join-columns>

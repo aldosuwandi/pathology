@@ -1,6 +1,6 @@
 <?php $this->load->helper('url'); ?>
 
-<a href="<?php base_url();?>create_test" class="btn btn-default" role="button">Create</a>
+<a href="<?php base_url();?>/admin/test/create" class="btn btn-default" role="button">Create</a>
 <br/>
 <table class="table table-striped">
     <thead>
@@ -20,8 +20,8 @@
             <td><?php echo $test->getUnit(); ?></td>
             <td><?php echo $test->getExpectedValue(); ?></td>
             <td>
-                <a href="<?php base_url();?>edit_test/<?php echo $test->getId();?>" class="btn btn-default" role="button">Edit</a>
-                <a href="<?php base_url();?>delete_test/<?php echo $test->getId();?>" class="btn btn-default" role="button">Delete</a>
+                <a href="<?php base_url();?>/admin/test/edit/<?php echo $test->getId();?>" class="btn btn-default" role="button">Edit</a>
+                <a href="<?php base_url();?>/admin/test/delete/<?php echo $test->getId();?>" class="btn btn-default" role="button">Delete</a>
             </td>
         </tr>
     <?php } ?>

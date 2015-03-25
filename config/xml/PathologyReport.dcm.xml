@@ -10,8 +10,11 @@
     </id>
     <field name="title" type="text" column="title" length="65535" nullable="false"/>
     <field name="dateTaken" type="datetime" column="date_taken" nullable="false"/>
-    <field name="note" type="text" column="note" length="65535" nullable="false"/>
+    <field name="note" type="text" column="note" length="65535" nullable="true"/>
     <many-to-one field="user" target-entity="User">
+        <cascade>
+            <cascade-persist/>
+        </cascade>
       <join-columns>
         <join-column name="user" referenced-column-name="username"/>
       </join-columns>

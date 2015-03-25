@@ -16,6 +16,5 @@ class UserGroupData implements FixtureInterface
         $userGroup->setName('patient');
         $manager->persist($userGroup);
         $manager->flush();
-
     }
 }

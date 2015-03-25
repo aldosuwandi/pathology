@@ -7,32 +7,40 @@
 <?php $this->load->view('template/header');?>
 <div class="container-fluid">
     <div class="row">
-        <h1 class="page-header">Dashboard</h1>
-        <div class="table-responsive">
-            <button>Create</button>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                    <th>Header</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php for($i = 0 ; $i < 5; $i++) {?>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
+        <?php $this->load->helper('url'); ?>
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="<?php base_url();?>/patient">Reports</a></li>
+            </ul>
         </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Report List</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Note</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($reports as $report) {?>
+                        <tr>
+                            <td><?php echo $report->getTitle(); ?></td>
+                            <td><?php echo $report->getDateTaken()->format('Y-m-d'); ?></td>
+                            <td><?php echo $report->getNote(); ?></td>
+                            <td>
+                                <a href="<?php base_url();?>/patient/report/<?php echo $report->getId();?>" class="btn btn-default" role="button">Detail</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php $this->load->view('template/footer');?>

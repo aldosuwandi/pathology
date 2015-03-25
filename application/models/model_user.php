@@ -12,7 +12,7 @@ class Model_user extends MY_Model {
     {
         $user = $this->findById($username);
         if ($user) {
-            if ($user->getPassword() == md5($password)) {
+            if ($user->getPassword() == $password) {
                 return $user;
             }
         }
